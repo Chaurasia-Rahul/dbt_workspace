@@ -47,7 +47,7 @@ if __name__ == "__main__":
             load_select_tables_from_database(pipeline_name, schema, resources)
 
 
---------------------------------------------------------------
+------------------------------------------
 
 import dlt
 from sqlalchemy import create_engine,text
