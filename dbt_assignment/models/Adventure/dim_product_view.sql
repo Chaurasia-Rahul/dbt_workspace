@@ -1,4 +1,4 @@
-{{config(materialized='incremental',unique_key='product_id')}}
+{{config(materialized='view',alias= 'dim_product_vw',unique_key='product_id')}}
 
 with product AS (
 select product_id
@@ -68,7 +68,7 @@ select product_id
 ,Productcat_name
 ,c.product_subcategory_id
 ,Subcategory_name 
-,'{{ run_started_at.strftime ("%Y-%m-%d %H:%M:%S")}}'::timestamp as dbt_time
+,'{{ run_started_at.strftime ("%Y-%m-%d %H:%M:%S")}}'::timestamp as etl_time
 from product a
 inner join Productcategory b on a.product_id = b.product_category_id
 inner join subcategory c on b.product_category_id = c.product_category_id
