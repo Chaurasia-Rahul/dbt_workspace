@@ -66,6 +66,10 @@ models:
         tests:
           - not_null
 
+models:
+  - name: sales_order_items_by_year
+    description: ""
+
 
 sources:
   - name: stg
