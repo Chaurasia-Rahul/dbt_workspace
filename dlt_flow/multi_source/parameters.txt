@@ -1,0 +1,3 @@
+sakila_wh stg actor address category
+adventure stg product productcategory productsubcategory
+sakila_wh shd dim_date dim_customer

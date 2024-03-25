@@ -1,0 +1,82 @@
+
+version: 2
+
+models:
+  - name: dim_customer
+    description: ""
+    columns:
+      - name: customer_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+models:
+  - name: dim_product
+    description: ""
+    columns:
+      - name: product_id
+        description: "The primary key for this table"
+        tests:
+          - not_null
+
+models:
+  - name: product_mod
+    description: ""
+    columns:
+      - name: product_id
+        description: "The primary key for this table"
+        tests:
+          - not_null
+
+models:
+  - name: sales_order_items_by_year
+    description: ""
+    columns:
+      - name: order_date
+        description: "The primary key for this table"
+        tests:
+          - not_null
+
+models:
+  - name: yearly_sales_growth
+    description: ""
+    columns:
+      - name: territory_id
+        description: "The primary key for this table"
+        tests:
+          - not_null
+
+
+models:
+  - name: yearly_sales_person
+    description: ""
+    columns:
+      - name: territory_id
+        description: "The primary key for this table"
+        tests:
+          - not_null
+
+models:
+  - name: product_category_top3_territory
+    description: ""
+    columns:
+      - name: territory_id
+        description: "The primary key for this table"
+        tests:
+          - not_null
+
+
+sources:
+  - name: stg
+    database: adventure_db
+    schema: stg
+    tables:
+     - name: customer
+     - name: salesterritory
+     - name: product
+     - name: productcategory
+     - name: productsubcategory
+     - name: salesorderdetail
+     - name: salesorderheader
+
