@@ -1,4 +1,4 @@
-{{config(materialized='incremental',alias= 'dim_product_inc',unique_key='product_id')}}
+{{config(materialized='incremental',alias= 'dim_product_inc',unique_key='product_id')}}   --pre-hook -- add cte table for flag column
 
 with product AS (
 select product_id
@@ -26,7 +26,7 @@ select product_id
 ,sell_end_date
 , CASE WHEN make_flag = '1' and size = null then 1 ELSE 0 end as is_make_no_size
 , CASE WHEN finished_goods_flag = '1' and weight > 25 then 1 ELSE 0 end as is_finished_and_over_25
-from {{ ref('product_mod') }}
+from {{ ref('product_mod') }}  -- actual table
 ),
 Productcategory as (
 select product_category_id,
@@ -68,7 +68,7 @@ select product_id
 ,Productcat_name
 ,c.product_subcategory_id
 ,Subcategory_name 
-,'{{ run_started_at.strftime ("%Y-%m-%d %H:%M:%S")}}'::timestamp as etl_time
+,'{{ run_started_at.strftime ("%Y-%m-%d %H:%M:%S")}}'::timestamp as etl_time    -- need to change dbt(what time the dbt run)
 from product a
 inner join Productcategory b on a.product_id = b.product_category_id
 inner join subcategory c on b.product_category_id = c.product_category_id

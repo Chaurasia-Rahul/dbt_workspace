@@ -11,3 +11,7 @@
     FROM {{ source('stg', 'salesorderheader') }}
     WHERE EXTRACT(YEAR FROM order_date) = {{ year }}
 {%- endfor -%}
+
+
+
+---try it with DLThub
