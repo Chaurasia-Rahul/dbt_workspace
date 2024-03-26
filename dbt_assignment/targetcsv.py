@@ -17,16 +17,19 @@ conn = psycopg2.connect(
 cur = conn.cursor()
 
 # Execute your SQL query
-cur.execute("""SELECT 
+cur.execute("""select sales_person_id,round(avg(totalsales),2) as Average_sales
+from (
+SELECT 
         sales_person_id,
-        EXTRACT(YEAR FROM Order_Date) AS Year,
-        round(AVG(sub_total),2) AS AverageSales
+        sum(sub_total) as totalsales,
+        extract(year from order_date) as Years
     FROM 
         stg.salesorderheader
     GROUP BY 
-        sales_person_id, EXTRACT(YEAR FROM Order_Date)
-    ORDER BY 
-        EXTRACT(YEAR FROM Order_Date), sales_person_id """)
+        sales_person_id,extract (year from order_date)
+)
+group by sales_person_id
+ """)
 
 # Fetch all rows from the result set
 rows = cur.fetchall()
@@ -39,15 +42,15 @@ csv_file_path = os.path.join(folder_path, "targetsales.csv")
 with open(csv_file_path, "w", newline="") as csv_file:
     csv_writer = csv.writer(csv_file)
     # Write the header row if needed
-    csv_writer.writerow(["SalesPersonID", "Year", "AverageSales", "Target"])
+    csv_writer.writerow(["SalesPersonID", "AverageSales", "Target"])
     # Write the data rows
     for row in rows:
-        sales_person_id, year, average_sales = row
+        sales_person_id, average_sales = row
         random_increase = Decimal(random.uniform(0.10, 0.15))
         target = average_sales * (1 + random_increase)  # Target with random increase
         # Round the target value to two decimal places
         target = round(target, 2)
-        csv_writer.writerow([sales_person_id, year, average_sales, target])
+        csv_writer.writerow([sales_person_id, average_sales, target])
 
 # Close the cursor and the connection
 cur.close()
