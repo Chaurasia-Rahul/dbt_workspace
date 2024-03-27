@@ -22,8 +22,7 @@ select TERRITORY_ID as TERR_TERRITORY_ID,
 	   MODIFIED_DATE as TERR_MODIFIED_DATE
 from{{ source('stg', 'salesterritory') }}
 )
-select *,
-	   '{{ run_started_at.strftime ("%Y-%m-%d %H:%M:%S")}}'::timestamp as dbt_time
+select *
 from CUST 
 left join TERRITORY on CUST.CUST_TERRITORY_ID = TERRITORY.TERR_TERRITORY_ID
 

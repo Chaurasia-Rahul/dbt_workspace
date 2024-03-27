@@ -38,3 +38,10 @@ models:
 
     Adventure:
       +materialized: table
+
+
+on-run-start:
+  - "F:\\B2B\\INFLOW\\dbt_workspace\\dbt_assignment\\models\\Adventure\\update_etl_timestamp.sql"
+
+on-run-end:
+  - "F:\\B2B\\INFLOW\\dbt_workspace\\dbt_assignment\\models\\Adventure\\update_etl_timestamp.sql"
