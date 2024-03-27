@@ -29,14 +29,18 @@ FROM
 LEFT JOIN 
     sales_by_year AS previous_year ON current_year.sales_person_id = previous_year.sales_person_id
                                      AND current_year.Year = previous_year.Year + 1
-                                     )
-select s.sales_person_id,
-       s.year,
-       s.CurrentYearSales,
-       s.LastYearSales,
-       s.percent_Sales_Growth,
-       s."Target",
-       s.Target_Gap
+                                     ),
+final_draft as (
+select s.sales_person_id::int,
+       s.year::int,
+       s.CurrentYearSales::int,
+       s.LastYearSales::int,
+       s.percent_Sales_Growth::numeric(10, 2),
+       s."Target"::int,
+       s.Target_Gap::int
 from sale_growth_person s
 ORDER BY 
     s.Year,s.sales_person_id
+    )
+select *
+from final_draft
