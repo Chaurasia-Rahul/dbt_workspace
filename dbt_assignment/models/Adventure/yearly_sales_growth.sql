@@ -17,7 +17,7 @@ SELECT
     current_year.YearlySales AS CurrentYearSales,
     COALESCE(previous_year.YearlySales, 0) AS LastYearSales,
     case when previous_year.YearlySales is null then NULL else
-    round((((current_year.YearlySales- COALESCE(previous_year.YearlySales, 0))/current_year.YearlySales)*100),1)
+    round((((current_year.YearlySales- COALESCE(previous_year.YearlySales, 0))/COALESCE(previous_year.YearlySales, 0))*100),1)
     end as percent_Sales_Growth
 FROM 
     sales_by_year AS current_year
