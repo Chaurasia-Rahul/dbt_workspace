@@ -59,7 +59,7 @@ inner join subcategory c on b.product_category_id = c.product_category_id
 )
 select *
 from final_product
-
+where 1=1
 --  {% if is_incremental() %}
---    WHERE modified_date::timestamp > (select max(MODIFIED_DATE) from {{this}})
+--    and modified_date::timestamp > (select max(MODIFIED_DATE) from {{this}})
 --  {% endif %}
