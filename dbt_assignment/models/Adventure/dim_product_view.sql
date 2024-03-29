@@ -1,4 +1,4 @@
-{{config(materialized='view',alias= 'dim_product_vw',unique_key='product_id')}}
+{{config(materialized='table',alias= 'dim_product_inc',unique_key='product_id')}}
 
 with product AS (
 select product_id

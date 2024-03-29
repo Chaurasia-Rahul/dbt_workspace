@@ -26,7 +26,7 @@ LEFT JOIN
                                      AND current_year.Year = previous_year.Year + 1
 ),
 final_draft AS (
-select s.Territory_id::int,
+select s.Territory_id::int,   --no need
        s.year::int,
        s.CurrentYearSales::int,
        s.LastYearSales::int,
