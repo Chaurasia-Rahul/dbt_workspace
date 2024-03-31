@@ -5,16 +5,16 @@ from sql_database import sql_database, sql_table, Table
 
 def load_select_tables_from_database() -> None:
     pipeline = dlt.pipeline(
-        pipeline_name="sakila_wh", destination="postgres", dataset_name="mulitsource_data"
+        pipeline_name="sakila_wh", destination="postgres", dataset_name="stg"
     )
 
     # Credentials for the sample database.
     # Note: It is recommended to configure credentials in `.dlt/secrets.toml` under `sources.sql_database.credentials`
     source = sql_database()
     
-    schema = "stg"
+    schema = "shd"
     # Configure the source to load a few select tables incrementally
-    source_1 = sql_database(schema=schema).with_resources("actor","address")
+    source_1 = sql_database(schema=schema)   #.with_resources("actor","address")
 
 
     info = pipeline.run(source_1, write_disposition="replace")
