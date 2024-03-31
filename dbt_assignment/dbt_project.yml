@@ -41,5 +41,5 @@ models:
     Adventure:
       +materialized: table
 
-#on-run-end: 
-# - "ALTER TABLE dwh.dim_customer ADD COLUMN etl_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP;"
+on-run-end: 
+ - "{{ update_etl_time() }}"

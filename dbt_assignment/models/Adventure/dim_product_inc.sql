@@ -50,7 +50,8 @@ select product_id::int
 ,b.product_category_id::int
 ,b.name::varchar(30) as Category_name
 ,c.product_subcategory_id::int
-,c.name::varchar(30) as Subcategory_name 
+,c.name::varchar(30) as Subcategory_name
+,cast('01/01/1999' as date)::timestamp as etl_time 
 from product a
 inner join Productcategory b on a.product_id = b.product_category_id
 inner join subcategory c on b.product_category_id = c.product_category_id

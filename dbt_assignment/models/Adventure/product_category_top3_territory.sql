@@ -16,10 +16,10 @@ WITH ranked_territories AS (
 final_draft AS
 (
 SELECT 
-    Territory_ID::int,
-    product_id::int,
-    Year::int,
-    Revenue::int
+    Territory_ID,
+    product_id,
+    Year,
+    Revenue
 FROM 
     ranked_territories
 WHERE 

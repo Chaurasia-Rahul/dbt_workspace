@@ -23,7 +23,8 @@ country_region_code::varchar(50),
 sales_ytd::numeric(38, 9),
 sales_last_year::numeric(38, 9),
 cost_ytd::numeric(38, 9),
-cost_last_year::numeric(38, 9)
+cost_last_year::numeric(38, 9),
+cast('01/01/1999' as date)::timestamp as etl_time
 from cust c
 left join territory b on c.TERRITORY_ID = b.TERRITORY_ID 
 )

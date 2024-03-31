@@ -1,8 +1,8 @@
-{% macro year_split(year) %}
-    {{ config(alias = 'sales_order_year_'~year) }}
-    SELECT s.*,s2.sub_total,s2.total_due, EXTRACT(YEAR FROM Order_date) AS "Year"
-    FROM STG.salesorderdetail s 
-    INNER JOIN STG.salesorderheader s2 
-    ON s.sales_order_id = s2.sales_order_id 
-    WHERE EXTRACT(YEAR FROM ORDER_DATE) = '{{ year }}'
+{% macro update_etl_time1() %}
+    {%- set tables = run_query("SELECT TABLE_NAME FROM information_schema.tables WHERE table_schema='dwh' and table_type ='BASE TABLE'") -%}
+    {% for table in tables %}
+        {%- set table_name = table[0] -%}
+        {%- set update_sql = "UPDATE Adventure." ~ table_name ~ " SET etl_time = CURRENT_TIMESTAMP" -%}
+        {%- do run_query(update_sql) -%}
+    {% endfor %}
 {% endmacro %}
