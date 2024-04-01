@@ -41,5 +41,5 @@ models:
     Adventure:
       +materialized: table
 
-on-run-end: 
- - "{{ update_etl_time() }}"
+#on-run-end: 
+# - "{{ update_etl_time() }}"

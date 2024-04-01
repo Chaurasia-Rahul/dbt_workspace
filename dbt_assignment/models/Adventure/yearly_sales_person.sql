@@ -42,5 +42,6 @@ SELECT
     Target_Gap
 FROM 
     sale_growth_person
+--where sales_person_id is not null
 ORDER BY 
     sales_person_id,Year
