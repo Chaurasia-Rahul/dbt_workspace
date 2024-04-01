@@ -6,7 +6,7 @@ import logging
 import time
 
 # Configure logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO)   ## start time and end time
 logger = logging.getLogger(__name__)
 
 try:
