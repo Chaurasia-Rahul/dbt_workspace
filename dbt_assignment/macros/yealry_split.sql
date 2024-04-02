@@ -1,3 +1,5 @@
+{# macro for to create a table based on order_date year #}
+
 {% macro yearly_split(year) %}
 
 {{ config(materialized='table', alias='sales_order_item_'~year) }}

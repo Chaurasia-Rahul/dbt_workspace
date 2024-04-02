@@ -1,0 +1,22 @@
+In dbt, there isn't a built-in feature for automatically refreshing materialized views. However, you can achieve this by leveraging external
+scheduling tools like dbt Cloud, Airflow, or other scheduling solutions.
+
+Here's a general approach using dbt Cloud as an example:
+
+1. **Set up dbt Cloud**: If you're not already using dbt Cloud, sign up for an account and connect it to your dbt project repository.
+
+2. **Create a dbt Cloud Job**: In dbt Cloud, you can create Jobs that execute your dbt models. Configure a Job that specifically targets the materialized view you want to refresh.
+
+3. **Schedule the Job**: Set up a schedule for the Job to run at the desired frequency. You can configure it to run daily, hourly, or at any other interval that suits your needs.
+
+4. **Notification**: Configure notifications so that you're informed of the Job's success or failure.
+     This ensures that you're alerted if there are any issues with refreshing the materialized view.
+
+5. **Testing**: Before setting up the schedule, ensure that your materialized view behaves as expected.
+     You can manually trigger the Job to ensure that it refreshes the materialized view correctly.
+
+6. **Monitoring**: After setting up the scheduled Job, monitor its execution to ensure that the materialized view continues to refresh as expected. 
+    If any issues arise, investigate and address them promptly.
+
+By following these steps, you can effectively automate the refreshing of materialized views in dbt using dbt Cloud or similar scheduling solutions. 
+Remember to consider factors like data freshness requirements, query performance, and resource utilization when scheduling the refreshes.
