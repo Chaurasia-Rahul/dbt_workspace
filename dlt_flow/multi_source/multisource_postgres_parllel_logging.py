@@ -1,3 +1,5 @@
+#multisource_postgres_parllel_logging
+# incremental logic, latest update date - 5 min
 import dlt
 from sqlalchemy import create_engine, text
 from sql_database import sql_database

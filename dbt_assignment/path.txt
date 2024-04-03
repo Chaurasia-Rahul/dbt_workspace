@@ -1,0 +1,8 @@
+F:\B2B\INFLOW\dbt_workspace\dbt_venv\Scripts\activate.ps1
+
+cd F:\B2B\INFLOW\dbt_workspace\dbt_assignment
+
+cd F:\B2B\INFLOW\dbt_workspace\dlt_flow\multi_source
+
+cd F:\B2B\INFLOW\dbt_workspace\dlt_flow\sqlserver_dataload
+

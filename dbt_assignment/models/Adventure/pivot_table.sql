@@ -6,4 +6,3 @@ select
     TO_TIMESTAMP('01/01/1999', 'MM/DD/YYYY') AS etl_time
 from {{ ref('yearly_sales_person') }}
 group by sales_person_id
-
