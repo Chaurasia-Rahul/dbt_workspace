@@ -41,5 +41,8 @@ models:
     Adventure:
       +materialized: table
 
-#on-run-end: 
-# - "{{ update_etl_time() }}"
+#on-run-start:
+#  - {{ "dbt run --select tag:pre_run" }}
+
+on-run-end: 
+ - "{{ update_etl_time() }}"

@@ -34,6 +34,7 @@ WITH cte_sales_order AS (
             ,a.modified_date::timestamp
             ,b.sub_total::numeric(38, 9) as Gross_sales
             ,b.Total_due::numeric(38, 9) as Net_Sales
+            ,cast('01/01/1999' as date) as etl_time
         from cte_sales_order a
         inner join salesorderheaders b on a.sales_order_id = b.sales_order_id
         )
