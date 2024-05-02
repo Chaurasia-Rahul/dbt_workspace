@@ -16,7 +16,6 @@ def load_database_table(credential, db_name,incremental_col):
         )
         info = pipeline.run(source.with_resources(table_name), table_name=f"{table_name}_{db_name}", write_disposition="merge")
         print(info)
-
         
 if __name__ == "__main__":     
     engine = create_engine("postgresql://loader:Rahul_1234@localhost:5432/dlt_data")
