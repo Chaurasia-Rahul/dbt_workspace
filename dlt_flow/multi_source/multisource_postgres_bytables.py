@@ -5,13 +5,13 @@ from sqlalchemy import create_engine, text
 from sql_database import sql_database  # Assuming this is a custom module to establish database connection
 import subprocess
 
-def load_database_table(credential, db_name, incremental_col, engine):
+def load_database_table(credential, db_name, incremental_col):
     source = sql_database(credentials=credential, schema='stg')
     for table_name in source.resources.keys():
         incremental_source = incremental(incremental_col, initial_value=pendulum.datetime(1999, 1, 1, 0, 0, 0))
         source.resources[table_name].apply_hints(incremental=incremental_source)
         pipeline = dlt.pipeline(
-            pipeline_name=db_name, destination="postgres", dataset_name="Src_load_inc"#, progress="log"
+            pipeline_name=db_name, destination="postgres", dataset_name="Src_load_inc", progress="log"
         )
         
         #Drop the existing dataset
@@ -27,7 +27,7 @@ def load_database_table(credential, db_name, incremental_col, engine):
         row_counts = last_trace.last_normalize_info.row_counts
         row_counts.pop('_dlt_pipeline_state', None)
         print("Row counts:", row_counts)
-        print(row_counts)
+        #print(row_counts)
         
         # Check if row_counts is empty
         if not row_counts:
@@ -35,7 +35,7 @@ def load_database_table(credential, db_name, incremental_col, engine):
         else:
         # Extract the value from the dictionary if it's not empty
             table_name1=f"{table_name}_{db_name}"
-            row_counts = row_counts[table_name1]  # replace 'table_name' with the actual key
+            row_counts = row_counts[table_name1] 
             print(row_counts)
 
         engine1 = create_engine("postgresql://loader:Rahul_1234@localhost:5432/dlt_data")
@@ -48,7 +48,7 @@ def load_database_table(credential, db_name, incremental_col, engine):
 
             # If the table name exists, update the row count
             if count > 0:
-                query = text(f"UPDATE dwh.multisource_log SET row_processed = {row_counts} WHERE table_name = '{table_name}_{db_name}'")
+                query = text(f"UPDATE dwh.multisource_log SET row_processed = {row_counts}, modified_date = CURRENT_TIMESTAMP WHERE table_name = '{table_name}_{db_name}'")
             # If the table name does not exist, insert a new row
             else:
                 query = text(f"INSERT INTO dwh.multisource_log (table_name, row_processed) VALUES ('{table_name}_{db_name}', {row_counts})")
@@ -66,4 +66,4 @@ if __name__ == "__main__":
     for row in rows:
         db_name, db_schema, credential, incremental_col = row
         print(row)
-        load_database_table(credential, db_name, incremental_col, engine)
+        load_database_table(credential, db_name, incremental_col)
