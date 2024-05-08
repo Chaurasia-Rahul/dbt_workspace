@@ -1,24 +1,63 @@
-Found pipeline third_db in C:\Users\rchau\.dlt\pipelines
-Run started at 2024-05-08 05:24:06.741723+00:00 and COMPLETED in 1.63 seconds with 4 steps.
-Step extract COMPLETED in 0.39 seconds.
-
-Load package 1715145847.0244536 is EXTRACTED and NOT YET LOADED to the destination and contains no failed jobs
-
-Step normalize COMPLETED in 0.53 seconds.
-Normalized data for the following tables:
-- _dlt_pipeline_state: 1 row(s)
-- dim_customer_third_db: 599 row(s)
-
-Load package 1715145847.0244536 is NORMALIZED and NOT YET LOADED to the destination and contains no failed jobs
-
-Step load COMPLETED in 0.55 seconds.
-Pipeline third_db load step completed in 0.48 seconds
-1 load package(s) were loaded to destination postgres and into dataset src_load_inc
-The postgres destination used postgresql://loader:***@localhost:5432/multi_source location to store data
-Load package 1715145847.0244536 is LOADED and contains no failed jobs
-
-Step run COMPLETED in 1.63 seconds.
-Pipeline third_db load step completed in 0.48 seconds
-1 load package(s) were loaded to destination postgres and into dataset src_load_inc
-The postgres destination used postgresql://loader:***@localhost:5432/multi_source location to store data
-Load package 1715145847.0244536 is LOADED and contains no failed jobs
+2024-05-08 13:47:06,991 - INFO - Pipeline info: Pipeline adventure_db load step completed in ---
+0 load package(s) were loaded to destination postgres and into dataset None
+The postgres destination used postgresql://loader:***@localhost:5432/multi_source location to store data
+2024-05-08 13:47:06,992 - INFO - currency:Row counts: {}
+2024-05-08 13:47:09,376 - INFO - Pipeline info: Pipeline adventure_db load step completed in 0.52 seconds
+1 load package(s) were loaded to destination postgres and into dataset src_load_inc
+The postgres destination used postgresql://loader:***@localhost:5432/multi_source location to store data
+Load package 1715156228.025717 is LOADED and contains no failed jobs
+2024-05-08 13:47:09,376 - INFO - currencyrate:Row counts: {}
+2024-05-08 13:47:11,762 - INFO - Pipeline info: Pipeline adventure_db load step completed in 0.46 seconds
+1 load package(s) were loaded to destination postgres and into dataset src_load_inc
+The postgres destination used postgresql://loader:***@localhost:5432/multi_source location to store data
+Load package 1715156230.4705625 is LOADED and contains no failed jobs
+2024-05-08 13:47:11,763 - INFO - productcategory:Row counts: {}
+2024-05-08 13:47:14,621 - INFO - Pipeline info: Pipeline adventure_db load step completed in 0.44 seconds
+1 load package(s) were loaded to destination postgres and into dataset src_load_inc
+The postgres destination used postgresql://loader:***@localhost:5432/multi_source location to store data
+Load package 1715156232.8134499 is LOADED and contains no failed jobs
+2024-05-08 13:47:14,622 - INFO - customer:Row counts: {}
+2024-05-08 13:47:17,195 - INFO - Pipeline info: Pipeline adventure_db load step completed in 0.56 seconds
+1 load package(s) were loaded to destination postgres and into dataset src_load_inc
+The postgres destination used postgresql://loader:***@localhost:5432/multi_source location to store data
+Load package 1715156235.7995539 is LOADED and contains no failed jobs
+2024-05-08 13:47:17,195 - INFO - productsubcategory:Row counts: {}
+2024-05-08 13:47:17,767 - INFO - Pipeline info: Pipeline second_db load step completed in ---
+0 load package(s) were loaded to destination postgres and into dataset None
+The postgres destination used postgresql://loader:***@localhost:5432/multi_source location to store data
+2024-05-08 13:47:17,768 - INFO - product:Row counts: {}
+2024-05-08 13:47:19,139 - INFO - Pipeline info: Pipeline second_db load step completed in 0.40 seconds
+1 load package(s) were loaded to destination postgres and into dataset src_load_inc
+The postgres destination used postgresql://loader:***@localhost:5432/multi_source location to store data
+Load package 1715156238.0136344 is LOADED and contains no failed jobs
+2024-05-08 13:47:19,139 - INFO - salesorderdetail:Row counts: {}
+2024-05-08 13:47:20,513 - INFO - Pipeline info: Pipeline second_db load step completed in 0.41 seconds
+1 load package(s) were loaded to destination postgres and into dataset src_load_inc
+The postgres destination used postgresql://loader:***@localhost:5432/multi_source location to store data
+Load package 1715156239.3894572 is LOADED and contains no failed jobs
+2024-05-08 13:47:20,514 - INFO - salesorderheader:Row counts: {}
+2024-05-08 13:47:21,942 - INFO - Pipeline info: Pipeline second_db load step completed in 0.40 seconds
+1 load package(s) were loaded to destination postgres and into dataset src_load_inc
+The postgres destination used postgresql://loader:***@localhost:5432/multi_source location to store data
+Load package 1715156240.8264291 is LOADED and contains no failed jobs
+2024-05-08 13:47:21,943 - INFO - salesperson:Row counts: {}
+2024-05-08 13:47:23,290 - INFO - Pipeline info: Pipeline second_db load step completed in 0.41 seconds
+1 load package(s) were loaded to destination postgres and into dataset src_load_inc
+The postgres destination used postgresql://loader:***@localhost:5432/multi_source location to store data
+Load package 1715156242.1906602 is LOADED and contains no failed jobs
+2024-05-08 13:47:23,291 - INFO - salesterritory:Row counts: {}
+2024-05-08 13:47:24,697 - INFO - Pipeline info: Pipeline third_db load step completed in 0.42 seconds
+1 load package(s) were loaded to destination postgres and into dataset src_load_inc
+The postgres destination used postgresql://loader:***@localhost:5432/multi_source location to store data
+Load package 1715156243.6957173 is LOADED and contains no failed jobs
+2024-05-08 13:47:24,699 - INFO - dim_store:Row counts: {'dim_store_third_db': 2}
+2024-05-08 13:47:25,984 - INFO - Pipeline info: Pipeline third_db load step completed in 0.42 seconds
+1 load package(s) were loaded to destination postgres and into dataset src_load_inc
+The postgres destination used postgresql://loader:***@localhost:5432/multi_source location to store data
+Load package 1715156244.968739 is LOADED and contains no failed jobs
+2024-05-08 13:47:25,986 - INFO - dim_staff:Row counts: {'dim_staff_third_db': 2}
+2024-05-08 13:47:27,572 - INFO - Pipeline info: Pipeline third_db load step completed in 0.48 seconds
+1 load package(s) were loaded to destination postgres and into dataset src_load_inc
+The postgres destination used postgresql://loader:***@localhost:5432/multi_source location to store data
+Load package 1715156246.263041 is LOADED and contains no failed jobs
+2024-05-08 13:47:27,572 - INFO - dim_customer:Row counts: {'dim_customer_third_db': 599}
