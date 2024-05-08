@@ -1,0 +1,24 @@
+Found pipeline third_db in C:\Users\rchau\.dlt\pipelines
+Run started at 2024-05-08 05:24:06.741723+00:00 and COMPLETED in 1.63 seconds with 4 steps.
+Step extract COMPLETED in 0.39 seconds.
+
+Load package 1715145847.0244536 is EXTRACTED and NOT YET LOADED to the destination and contains no failed jobs
+
+Step normalize COMPLETED in 0.53 seconds.
+Normalized data for the following tables:
+- _dlt_pipeline_state: 1 row(s)
+- dim_customer_third_db: 599 row(s)
+
+Load package 1715145847.0244536 is NORMALIZED and NOT YET LOADED to the destination and contains no failed jobs
+
+Step load COMPLETED in 0.55 seconds.
+Pipeline third_db load step completed in 0.48 seconds
+1 load package(s) were loaded to destination postgres and into dataset src_load_inc
+The postgres destination used postgresql://loader:***@localhost:5432/multi_source location to store data
+Load package 1715145847.0244536 is LOADED and contains no failed jobs
+
+Step run COMPLETED in 1.63 seconds.
+Pipeline third_db load step completed in 0.48 seconds
+1 load package(s) were loaded to destination postgres and into dataset src_load_inc
+The postgres destination used postgresql://loader:***@localhost:5432/multi_source location to store data
+Load package 1715145847.0244536 is LOADED and contains no failed jobs
